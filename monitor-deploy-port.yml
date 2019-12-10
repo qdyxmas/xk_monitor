@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: k8stest
+  name: k8stest         
+  namespace: xkool-k8stest
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8stest
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: k8stest
+    spec:
+      containers:
+      - image: docker.io/soloxmas/k8stest
+        name: k8stest-containers
+        imagePullPolicy: Never
+        ports:
+        - name: port01
+          containerPort: 10000
+          hostPort: 10000
+          protocol: TCP
+        resources: {}
+status: {}
+
