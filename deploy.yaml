@@ -1,0 +1,23 @@
+pipeline {
+agent any
+stages {
+	stage("update code") {
+		steps {
+			dir('k8s_test') {
+					git credentialsId: '5bc5032b-8b16-4f99-94f4-acf6c64e8fb5', url: 'git@git.xkool.org:qudeyong/k8s_test.git'
+				}
+			}
+		}
+	stage("docker build") {
+		steps {
+			dir('k8s_test') {
+					sh 'docker build -t xkk8stest  -f Dockerfile .'
+					sh 'docker tag image_id soloxmas/xkool-k8stest'
+					sh 'docker tag image_id soloxmas/xkool-k8stest'
+					sh 'docker push soloxmas/xkool-k8stest'
+					sh 'kubectl apply -f k8stest-deploy-port.yml'
+				}
+			}
+		}
+	}
+}
