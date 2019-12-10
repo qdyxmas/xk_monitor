@@ -60,7 +60,7 @@
             k8stest         1/1     1            1           9m58s
             xkool-k8stest   1/1     1            1           6h59m
     kubectl delete pod xkool-k8stest-6cd4d56f55-9hvjx -n xkool-k8stest  #删除pod
-    kubectl delete deployment xkool-k8stest -n xkool-k8stest            #删除deployment
+    kubectl delete deployment k8stest -n xkool-k8stest            #删除deployment
 
     
 #参考：

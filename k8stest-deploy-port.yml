@@ -19,7 +19,7 @@ spec:
         app: k8stest
     spec:
       containers:
-      - image: docker.io/soloxmas/k8stest
+      - image: docker.io/soloxmas/xkool-k8stest
         name: k8stest-containers
         imagePullPolicy: Never
         ports:
