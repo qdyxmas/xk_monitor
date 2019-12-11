@@ -18,7 +18,7 @@
     6.注册docker账号，然后创建命名空间xkool-k8stest
         docker images获取xkk8stest的image id
         然后给xkk8stest镜像打完tag
-        docker tag image_id soloxmas/xkool-k8stest
+        docker tag xkk8stest:latest soloxmas/xkool-k8stest
         docker login #输入注册的用户名和密码 
         docker push soloxmas/xkool-k8stest #把打好tag的image推送到docker库中以便拉取,这一步比较慢
     
