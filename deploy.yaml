@@ -19,6 +19,7 @@ stages {
 					sh "docker build -t xkk8stest  -f Dockerfile ."
 					sh "docker tag xkk8stest soloxmas/xkool-k8stest"
 					sh 'docker push soloxmas/xkool-k8stest'
+					sh 'kubectl delete -f k8stest-deploy-port.yml'
 					sh 'kubectl apply -f k8stest-deploy-port.yml'
 				}
 			}
