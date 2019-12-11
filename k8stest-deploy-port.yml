@@ -21,7 +21,7 @@ spec:
       containers:
       - image: docker.io/soloxmas/xkool-k8stest
         name: k8stest-containers
-        imagePullPolicy: Always
+        imagePullPolicy: Never
         ports:
         - name: port01
           containerPort: 10000
