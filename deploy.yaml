@@ -18,7 +18,7 @@ stages {
 			dir('k8s_test') {
 					sh "docker build -t xkk8stest  -f Dockerfile ."
 					sh "docker tag xkk8stest soloxmas/xkool-k8stest"
-					sh 'docker push soloxmas/xkool-k8stest'
+					sh 'docker push xkk8stest soloxmas/xkool-k8stest'
 					sh 'kubectl apply -f k8stest-deploy-port.yml'
 				}
 			}
