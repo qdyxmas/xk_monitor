@@ -5,6 +5,11 @@ stages {
 		steps {
 			dir('k8s_test') {
 					git branch: 'feature/qdy-k8s-test', credentialsId: 'd047f78f-33de-47b3-850e-217e41550946', url: 'https://git.xkool.org/qudeyong/k8s_test.git'
+					script {
+                         build_tag = sh(returnStdout: true, script: "git rev-parse --short HEAD|tr -d '\n';echo -|tr -d '\n';date +%Y%m%d%H%M").trim()
+                        sh ("echo ${build_tag} > commitid");
+                     } 
+
 				}
 			}
 		}
@@ -12,7 +17,7 @@ stages {
 		steps {
 			dir('k8s_test') {
 					sh 'docker build -t xkk8stest  -f Dockerfile .'
-					sh 'docker tag xkk8stest:latest soloxmas/xkool-k8stest'
+					sh "docker tag xkk8stest:${build_tag} soloxmas/xkool-k8stest"
 					sh 'docker push soloxmas/xkool-k8stest'
 					sh 'kubectl apply -f k8stest-deploy-port.yml'
 				}
