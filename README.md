@@ -16,7 +16,7 @@
         docker build -t xkk8stest -f Dockerfile .
         docker run  -d -i -t xkk8stest /bin/bash    #如果能够进入表示已经启动
     6.注册docker账号，然后创建命名空间xkool-k8stest
-        docker images获取xkk8stest的image id
+        docker images   获取xkk8stest的image id
         然后给xkk8stest镜像打完tag
         docker tag xkk8stest:latest soloxmas/xkool-k8stest
         docker login #输入注册的用户名和密码 
