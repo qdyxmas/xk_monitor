@@ -5,11 +5,6 @@ stages {
 		steps {
 			dir('k8s_test') {
 					git branch: 'master', url: 'https://github.com/qdyxmas/xk_monitor.git'
-					script {
-                         build_tag = sh(returnStdout: true, script: "git rev-parse --short HEAD|tr -d '\n';echo -|tr -d '\n';date +%Y%m%d%H%M").trim()
-                        sh ("echo ${build_tag} > commitid");
-                     } 
-
 				}
 			}
 		}
